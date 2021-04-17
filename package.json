@@ -1,0 +1,15 @@
+{
+  "name": "timeworked",
+  "version": "1.0.0",
+  "description": "Pago por horas y dias de trabajo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Javascript",
+    "html"
+  ],
+  "author": "Antonio Espin",
+  "license": "ISC"
+}
