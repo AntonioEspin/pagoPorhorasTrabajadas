@@ -1,46 +1,84 @@
-const parrafo = document.getElementById('parrafo');
-const totalPay = document.getElementById('totalPay')
+// --------> variables <--------
+const totalPay = document.getElementById('totalPay');
 const addButton = document.getElementById('button-add');
-const fullButton = document.getElementById('full-payment')
-const newEmployee = document.getElementById('new-employee')
+const removeButton = document.getElementById('button-remove');
+const fullButton = document.getElementById('full-payment');
+const newEmployee = document.getElementById('new-employee');
+const user = document.getElementById('user');
 const inputDay = document.getElementById('day');
 const entryTime = document.getElementById('entryTime');
 const departureTime = document.getElementById('departureTime');
+const container = document.getElementById('container')
 
-let datosIngresados = 0
+fullButton.disabled = true;
+newEmployee.disabled = true;
+let dataEntered = 0
 let payHour = 0
-let sumaHoras = 0
-let pagoAcum = []
+let addHours = 0
+let paymentAcum = []
+// --------> variables <--------
 
+// --------> events <--------
 addButton.addEventListener('click', (e)=>{
   e.preventDefault()
   const inputDayValue = inputDay.value;
   const entryTimeValue = entryTime.value;
   const departureTimeValue = departureTime.value;
+  fullButton.disabled = false;
+  addValues(inputDayValue, entryTimeValue, departureTimeValue);
+})
 
-  if (inputDayValue === ""){
-    alert('No ingresaste el dia')
-    return
+removeButton.addEventListener('click', (e) => {
+  e.preventDefault()
+  paymentAcum.pop()
+  const lastNode = container.lastChild
+  if(lastNode){
+    lastNode.remove()
   } else {
-    datosIngresados += 1
-    if (datosIngresados === 1){
-      parrafo.innerHTML = `Ingresaste ${datosIngresados} dato`
-    } else if (datosIngresados > 1) {
-      parrafo.innerHTML = `Ingresaste ${datosIngresados} datos`
-    } else {
-      parrafo.innerHTML = `No hay datos ingresados`
-    }
+    return
   }
-  addValues(inputDayValue, entryTimeValue, departureTimeValue)
+  if(paymentAcum.length === 0) {
+    alert('Eliminaste todos los datos')
+  }
 })
 
 fullButton.addEventListener('click', (e)=>{
   e.preventDefault()
-  const totalPayment = pagoAcum.reduce((acum, currentValue)=> acum + currentValue)
+  const userValue = user.value;
+  const totalPayment = paymentAcum.reduce((acum, currentValue)=> acum + currentValue)
   console.log(totalPayment)
-  totalPay.innerHTML = `El total a pagar es de ${totalPayment}`
+  totalPay.innerHTML = `El monto a pagar por ${userValue.toUpperCase()} es: ${totalPayment}`
+  inputDay.disabled = true;
+  entryTime.disabled = true;
+  departureTime.disabled = true;
+  addButton.disabled = true;
+  removeButton.disabled = true;
+  fullButton.disabled = true;
+  newEmployee.disabled = false;
 })
 
+newEmployee.addEventListener('click', () => {
+  dataEntered = 0;
+  payHour = 0;
+  addHours = 0;
+  paymentAcum = [];
+  inputDay.disabled = false;
+  entryTime.disabled = false;
+  departureTime.disabled = false;
+  addButton.disabled = false;
+  removeButton.disabled = false;
+  newEmployee.disabled = true;
+  const title = document.querySelector('h2');
+  title.innerHTML = '';
+  inputDay.innerHTML = '';
+  const allParagraph = document.querySelectorAll('p');
+  for(item of allParagraph){
+    item.remove()
+  }
+})
+// --------> events <--------
+
+// --------> functions <--------
 const addValues = (day, entry, departure) => {
   const entryNumber = parseInt(entry);
   const departureNumber = parseInt(departure)
@@ -58,17 +96,20 @@ const addValues = (day, entry, departure) => {
       valueHoursWeekend(entry, departure)
       break;
     default:
-      alert('Ingresaste mal algun valor')
-      datosIngresados = 0;
+      alert('Ingresaste mal algún valor')
+      dataEntered = 0;
       return
     }
 
-  const pagoDiario = hoursWorked * payHour
-  console.log(pagoDiario)
-  pagoAcum.push(pagoDiario)
-  console.log(pagoAcum)
+  const dailyPay = hoursWorked * payHour
+  console.log(dailyPay)
+  paymentAcum.push(dailyPay)
+  console.log(paymentAcum)
   console.log(`el pana trabajo ${hoursWorked}`)
   console.log(`La hora cuesta ${payHour}`)
+  const showPayment = document.createElement('p')
+  showPayment.innerHTML = `Por el día "${day}" se le pagará $${paymentAcum[paymentAcum.length - 1]}`
+  container.appendChild(showPayment)
 }
 
 const valueHoursWeekday = (entry, departure) => {
@@ -85,8 +126,9 @@ const valueHoursWeekend = (entry, departure) => {
   if ((entry >= '00:01' && entry <= '09:00') && (departure >= '00:01' && departure <= '09:00')) {
     payHour = 30             
   } else if ((entry >= '09:01' && entry <= '18:00') && (departure >= '09:01' && departure <= '18:00')) {
-      payHour = 20
-    } else {
-        payHour = 25
-      }
+    payHour = 20
+  } else {
+    payHour = 25
+  }
 }
+// --------> functions <--------
