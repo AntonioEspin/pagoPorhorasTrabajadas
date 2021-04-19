@@ -105,7 +105,7 @@ const addValues = (day, entry, departure) => {
   console.log(dailyPay)
   paymentAcum.push(dailyPay)
   console.log(paymentAcum)
-  console.log(`el pana trabajo ${hoursWorked}`)
+  console.log(`trabajó ${hoursWorked}`)
   console.log(`La hora cuesta ${payHour}`)
   const showPayment = document.createElement('p')
   showPayment.innerHTML = `Por el día "${day}" se le pagará $${paymentAcum[paymentAcum.length - 1]}`

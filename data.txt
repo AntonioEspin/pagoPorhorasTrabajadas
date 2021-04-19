@@ -1,0 +1,66 @@
+{
+  Employee 1 : {
+    Name : RENE,
+    Schedule: {
+      MO: 10:00 - 12:00,
+      TU: 10:00 - 12:00,
+      TH: 01:00 - 03:00,
+      SA: 14:00 - 18:00,
+      SU: 20:00 - 21:00
+    }
+  }
+},
+{
+  Employee 2 : {
+    Name : ASTRID,
+    Schedule: {
+      MO: 10:00 - 12:00,
+      TH: 12:00 - 14:00,
+      SU: 20:00 - 21:00
+    }
+  }
+},
+{
+  Employee 3 : {
+    Name : ANTONIO,
+    Schedule: {
+      TU: 11:00 - 15:00,
+      TH: 19:00 - 21:00,
+      SA: 03:00 - 05:00,
+      SU: 14:00 - 16:00
+    }
+  }
+},
+{
+  Employee 4 : {
+    Name : CRISTINA,
+    Schedule: {
+      MO: 19:00 - 21:00,
+      TU: 12:00 - 14:00,
+      FR: 03:00 - 05:00,
+      SU: 15:00 - 17:00
+    }
+  }
+},
+{
+  Employee 5 : {
+    Name : SANTIAGO,
+    Schedule: {
+      MO: 04:00 - 05:00,
+      WE: 10:00 - 12:00,
+      SA: 19:00 - 22:00,
+      SU: 01:00 - 03:00
+    }
+  }
+},
+{
+  Employee 6 : {
+    Name : ELIZABETH,
+    Schedule: {
+      WE: 12:00 - 15:00,
+      FR: 10:00 - 13:00,
+      SA: 21:00 - 23:00,
+      SU: 19:00 - 21:00
+    }
+  }
+},
