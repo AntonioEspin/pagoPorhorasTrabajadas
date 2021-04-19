@@ -29,3 +29,38 @@ La solución de este ejercicio está enfocado en la correcta manipulación del D
 La metodología usada en su mayoría es con javascript moderno para evitar la sobreescritura (por tal razón no se usa la variable "var"), y se usa tambíen "arrow functions" ya que estas facilitan mucho a la hora de escribir código.
 
 ### CÓMO EJECUTAR EL PROGRAMA?
+
+Para que puedas comprender mejor el ejercicio, clona este repositorio en tu lugar de trabajo.
+
+`git clone git@github.com:AntonioEspin/pagoPorhorasTrabajadas.git`
+
+Obtendrás todos los archivos y el código que usé para el proyecto.
+
+Tendrás un archivo .txt con toda la información del trabajador con su respectivo calendario.
+
+Este es el link al programa para que puedas comprobar que el ejercicio funciona:
+[Pago por horas](https://antonioespin.github.io/pagoPorhorasTrabajadas/public/index.html "Pago por horas")
+
+En el Programa:
+
+1. Ingresa el nombre del empleado en la primera opción.
+
+2. Usarás las siguientes abreviaciones para ingresar la información del día :
+
+- MO: Monday
+- TU: Tuesday
+- WE: Wednesday
+- TH: Thursday
+- FR: Friday
+- SA: Saturday
+- SU: Sunday
+
+3. Al seleccionar la hora de entrada y salida puedes escribirlo por medio de tu teclado o desplazarlo con el ratón.
+
+4. Agrega todos los valores que tengas en el archivo .txt con el botón "add".
+
+5. Si quieres eliminar un dato usa el botón "remove".
+
+6. Cuando ya tengas todos los datos ingresados usa el botón "full payment" para obtener el valor total de las horas trabajadas.
+
+7. Usa el botón "new employee" para ingresar los datos del siguiente trabajador.

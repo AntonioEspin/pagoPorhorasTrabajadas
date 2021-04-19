@@ -47,7 +47,7 @@ fullButton.addEventListener('click', (e)=>{
   const userValue = user.value;
   const totalPayment = paymentAcum.reduce((acum, currentValue)=> acum + currentValue)
   console.log(totalPayment)
-  totalPay.innerHTML = `El monto a pagar por ${userValue.toUpperCase()} es: ${totalPayment}`
+  totalPay.innerHTML = `El monto a pagar por ${userValue.toUpperCase()} es: $${totalPayment}`
   inputDay.disabled = true;
   entryTime.disabled = true;
   departureTime.disabled = true;
@@ -62,6 +62,7 @@ newEmployee.addEventListener('click', () => {
   payHour = 0;
   addHours = 0;
   paymentAcum = [];
+  user.innerHTML = '';
   inputDay.disabled = false;
   entryTime.disabled = false;
   departureTime.disabled = false;
